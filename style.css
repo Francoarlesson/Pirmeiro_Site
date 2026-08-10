@@ -87,7 +87,7 @@ header {
 }
 
 .logo img {
-    max-height: 48px;
+    max-height: 96px;
     width: auto;
 }
 
@@ -529,7 +529,6 @@ section p {
 .footer-brand img {
     max-width: 150px;
     margin-bottom: 1.25rem;
-    filter: brightness(0) saturate(100%) invert(100%);
 }
 
 .footer-brand p {
@@ -725,7 +724,7 @@ section p {
     }
 
     .logo img {
-        max-height: 42px;
+        max-height: 84px;
     }
 
     nav ul {
