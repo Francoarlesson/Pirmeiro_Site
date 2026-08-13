@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toldos e Telhados Ermelinda</title>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18052198390"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18052198390"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'AW-18052198390');
-</script>
+        gtag('config', 'AW-18052198390');
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Serviços profissionais de fabricação, instalação e manutenção de toldos e telhados. Solicite seu orçamento gratuito!">
+    <meta name="description"
+        content="Serviços profissionais de fabricação, instalação e manutenção de toldos e telhados. Solicite seu orçamento gratuito!">
 </head>
+
 <body>
 
     <header>
@@ -102,13 +105,41 @@
     <section id="portfolio" class="fade-in">
         <h2>Nossos Projetos</h2>
         <p>Veja alguns dos nossos trabalhos realizados.</p>
-        <div class="galeria">
-            <img src="imagens/Projetos1.jpeg" alt="Instalação de Toldo Retrátil">
-            <img src="imagens/Projetos2.jpeg" alt="Cobertura em Policarbonato">
-            <img src="imagens/p.jpeg" alt="Reforma de Telhado">
-            <img src="imagens/toldo azul.jpeg" alt="Toldo Azul">
-            <img src="imagens/cortina de lona.jpeg" alt="Toldo Cortina de lona">
+        <div class="carousel-container" tabindex="0" aria-label="Galeria de projetos realizados">
+            <button class="carousel-nav-btn prev" aria-label="Ver projeto anterior">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" fill="currentColor" />
+                </svg>
+            </button>
+
+            <div class="carousel-track-wrapper">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="imagens/Projetos1.jpeg" alt="Instalação de Toldo Retrátil">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="imagens/Projetos2.jpeg" alt="Cobertura em Policarbonato">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="imagens/p.jpeg" alt="Reforma de Telhado">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="imagens/toldo azul.jpeg" alt="Toldo Azul">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="imagens/cortina de lona.jpeg" alt="Toldo Cortina de lona">
+                    </div>
+                </div>
             </div>
+
+            <button class="carousel-nav-btn next" aria-label="Ver próximo projeto">
+                <svg viewBox="0 0 24 24" width="24" height="24">
+                    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="currentColor" />
+                </svg>
+            </button>
+        </div>
+
+        <div class="carousel-dots" role="tablist" aria-label="Seletor de slides do portfólio"></div>
     </section>
 
     <section id="depoimentos" class="fade-in">
@@ -132,25 +163,34 @@
 
     <section id="sobre" class="fade-in">
         <h2>Sobre a Toldos e Telhados Ermelinda</h2>
-        <p>A Toldos e Telhados Ermelinda atua no mercado de toldos e telhados, oferecendo soluções personalizadas com materiais de alta qualidade e mão de obra especializada. Nosso compromisso é com a satisfação do cliente, garantindo segurança, durabilidade e estética para o seu imóvel.</p>
+        <p>A Toldos e Telhados Ermelinda atua no mercado de toldos e telhados, oferecendo soluções personalizadas com
+            materiais de alta qualidade e mão de obra especializada. Nosso compromisso é com a satisfação do cliente,
+            garantindo segurança, durabilidade e estética para o seu imóvel.</p>
     </section>
 
     <section id="contato" class="fade-in">
         <h2>Solicite seu Orçamento Gratuito</h2>
-        
+
         <div class="contato-container">
             <div class="contato-card">
-                <p class="contato-intro">Clique no botão abaixo para abrir o WhatsApp com uma mensagem pronta e solicitar seu orçamento imediatamente.</p>
-                <a href="https://wa.me/5531988651258?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20toldos%20e%20telhados." target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+                <p class="contato-intro">Clique no botão abaixo para abrir o WhatsApp com uma mensagem pronta e
+                    solicitar seu orçamento imediatamente.</p>
+                <a href="https://wa.me/5531988651258?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20toldos%20e%20telhados."
+                    target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
                     <span class="whatsapp-icon" aria-hidden="true">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.94 13.06c-.2-.1-1.18-.58-1.36-.65-.18-.08-.31-.12-.44.12-.13.25-.51.65-.63.78-.12.12-.25.14-.46.05-.21-.1-.9-.33-1.71-1.05-.63-.56-1.05-1.26-1.17-1.47-.12-.2-.01-.31.09-.41.1-.1.22-.25.33-.37.1-.12.13-.2.2-.33.07-.13.04-.24-.02-.34-.07-.1-.44-1.06-.6-1.45-.16-.38-.33-.33-.44-.34-.11-.01-.24-.01-.37-.01-.13 0-.34.05-.52.24-.18.18-.7.69-.7 1.68s.72 1.95.82 2.09c.1.14 1.42 2.18 3.45 3.06 1.48.64 1.67.57 1.97.53.31-.04.98-.4 1.12-.79.14-.39.14-.72.1-.79-.04-.07-.18-.12-.38-.21z" fill="currentColor"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.004C6.475 2.004 2 6.48 2 12.004c0 2.098.617 4.053 1.68 5.72L2 22l4.5-1.17A9.964 9.964 0 0012 22.004c5.524 0 10-4.476 10-10 0-5.525-4.476-10-10-10zM12 20.004c-1.906 0-3.68-.62-5.154-1.68l-.37-.23-2.67.7.71-2.62-.24-.38A7.947 7.947 0 014 12.004c0-4.411 3.589-8 8-8 4.411 0 8 3.589 8 8s-3.589 8-8 8z" fill="currentColor"/>
+                            <path
+                                d="M16.94 13.06c-.2-.1-1.18-.58-1.36-.65-.18-.08-.31-.12-.44.12-.13.25-.51.65-.63.78-.12.12-.25.14-.46.05-.21-.1-.9-.33-1.71-1.05-.63-.56-1.05-1.26-1.17-1.47-.12-.2-.01-.31.09-.41.1-.1.22-.25.33-.37.1-.12.13-.2.2-.33.07-.13.04-.24-.02-.34-.07-.1-.44-1.06-.6-1.45-.16-.38-.33-.33-.44-.34-.11-.01-.24-.01-.37-.01-.13 0-.34.05-.52.24-.18.18-.7.69-.7 1.68s.72 1.95.82 2.09c.1.14 1.42 2.18 3.45 3.06 1.48.64 1.67.57 1.97.53.31-.04.98-.4 1.12-.79.14-.39.14-.72.1-.79-.04-.07-.18-.12-.38-.21z"
+                                fill="currentColor" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12 2.004C6.475 2.004 2 6.48 2 12.004c0 2.098.617 4.053 1.68 5.72L2 22l4.5-1.17A9.964 9.964 0 0012 22.004c5.524 0 10-4.476 10-10 0-5.525-4.476-10-10-10zM12 20.004c-1.906 0-3.68-.62-5.154-1.68l-.37-.23-2.67.7.71-2.62-.24-.38A7.947 7.947 0 014 12.004c0-4.411 3.589-8 8-8 4.411 0 8 3.589 8 8s-3.589 8-8 8z"
+                                fill="currentColor" />
                         </svg>
                     </span>
                     Peça seu orçamento pelo WhatsApp
                 </a>
-                <p class="contato-note">O WhatsApp abrirá com uma mensagem pronta para facilitar seu contato direto com nossa equipe.</p>
+                <p class="contato-note">O WhatsApp abrirá com uma mensagem pronta para facilitar seu contato direto com
+                    nossa equipe.</p>
             </div>
 
             <div class="info-contato">
@@ -172,7 +212,8 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <img src="imagens/Logo-Marca-removebg-preview.png" alt="Logo Toldos Ermelinda">
-                <p>Somos a Toldos Ermelinda: referência em toldos e coberturas em Belo Horizonte, entregando soluções duráveis, seguras e com atendimento especializado.</p>
+                <p>Somos a Toldos Ermelinda: referência em toldos e coberturas em Belo Horizonte, entregando soluções
+                    duráveis, seguras e com atendimento especializado.</p>
             </div>
             <div class="footer-links">
                 <h3>Links rápidos</h3>
@@ -200,13 +241,19 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/553188651258" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <a href="https://wa.me/553188651258" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
+        aria-label="WhatsApp">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.94 13.06c-.2-.1-1.18-.58-1.36-.65-.18-.08-.31-.12-.44.12-.13.25-.51.65-.63.78-.12.12-.25.14-.46.05-.21-.1-.9-.33-1.71-1.05-.63-.56-1.05-1.26-1.17-1.47-.12-.2-.01-.31.09-.41.1-.1.22-.25.33-.37.1-.12.13-.2.2-.33.07-.13.04-.24-.02-.34-.07-.1-.44-1.06-.6-1.45-.16-.38-.33-.33-.44-.34-.11-.01-.24-.01-.37-.01-.13 0-.34.05-.52.24-.18.18-.7.69-.7 1.68s.72 1.95.82 2.09c.1.14 1.42 2.18 3.45 3.06 1.48.64 1.67.57 1.97.53.31-.04.98-.4 1.12-.79.14-.39.14-.72.1-.79-.04-.07-.18-.12-.38-.21z" fill="#fff"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.004C6.475 2.004 2 6.48 2 12.004c0 2.098.617 4.053 1.68 5.72L2 22l4.5-1.17A9.964 9.964 0 0012 22.004c5.524 0 10-4.476 10-10 0-5.525-4.476-10-10-10zM12 20.004c-1.906 0-3.68-.62-5.154-1.68l-.37-.23-2.67.7.71-2.62-.24-.38A7.947 7.947 0 014 12.004c0-4.411 3.589-8 8-8 4.411 0 8 3.589 8 8s-3.589 8-8 8z" fill="#fff"/>
+            <path
+                d="M16.94 13.06c-.2-.1-1.18-.58-1.36-.65-.18-.08-.31-.12-.44.12-.13.25-.51.65-.63.78-.12.12-.25.14-.46.05-.21-.1-.9-.33-1.71-1.05-.63-.56-1.05-1.26-1.17-1.47-.12-.2-.01-.31.09-.41.1-.1.22-.25.33-.37.1-.12.13-.2.2-.33.07-.13.04-.24-.02-.34-.07-.1-.44-1.06-.6-1.45-.16-.38-.33-.33-.44-.34-.11-.01-.24-.01-.37-.01-.13 0-.34.05-.52.24-.18.18-.7.69-.7 1.68s.72 1.95.82 2.09c.1.14 1.42 2.18 3.45 3.06 1.48.64 1.67.57 1.97.53.31-.04.98-.4 1.12-.79.14-.39.14-.72.1-.79-.04-.07-.18-.12-.38-.21z"
+                fill="#fff" />
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M12 2.004C6.475 2.004 2 6.48 2 12.004c0 2.098.617 4.053 1.68 5.72L2 22l4.5-1.17A9.964 9.964 0 0012 22.004c5.524 0 10-4.476 10-10 0-5.525-4.476-10-10-10zM12 20.004c-1.906 0-3.68-.62-5.154-1.68l-.37-.23-2.67.7.71-2.62-.24-.38A7.947 7.947 0 014 12.004c0-4.411 3.589-8 8-8 4.411 0 8 3.589 8 8s-3.589 8-8 8z"
+                fill="#fff" />
         </svg>
     </a>
 
     <script src="js.js"></script>
 </body>
+
 </html>

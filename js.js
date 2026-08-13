@@ -1,4 +1,186 @@
+class Carousel {
+    constructor(containerSelector) {
+        this.container = document.querySelector(containerSelector);
+        if (!this.container) return;
+
+        this.track = this.container.querySelector('.carousel-track');
+        this.slides = Array.from(this.track.children);
+        this.btnPrev = this.container.querySelector('.carousel-nav-btn.prev');
+        this.btnNext = this.container.querySelector('.carousel-nav-btn.next');
+        this.dotsContainer = document.querySelector('.carousel-dots');
+
+        this.originalCount = this.slides.length;
+        if (this.originalCount === 0) return;
+
+        this.currentIndex = this.originalCount; // Começa no primeiro slide original (após os clones do início)
+        this.isTransitioning = false;
+        this.autoPlayTimer = null;
+        this.autoPlayDelay = 4000; // 4 segundos
+
+        this.init();
+    }
+
+    init() {
+        // Clonagem dos slides para o loop infinito
+        // Cria cópias completas do deck original
+        const firstClones = this.slides.map(slide => slide.cloneNode(true));
+        const lastClones = this.slides.map(slide => slide.cloneNode(true));
+
+        // Define aria-hidden nos clones para acessibilidade
+        firstClones.forEach(clone => clone.setAttribute('aria-hidden', 'true'));
+        lastClones.forEach(clone => clone.setAttribute('aria-hidden', 'true'));
+
+        // Adiciona os clones ao track
+        firstClones.forEach(clone => this.track.appendChild(clone));
+        lastClones.reverse().forEach(clone => this.track.insertBefore(clone, this.track.firstChild));
+
+        // Atualiza a lista completa de slides
+        this.allSlides = Array.from(this.track.children);
+
+        // Cria os pontos de paginação dinamicamente
+        this.createDots();
+
+        // Listeners de eventos
+        this.btnPrev.addEventListener('click', () => this.prev());
+        this.btnNext.addEventListener('click', () => this.next());
+
+        this.track.addEventListener('transitionend', () => this.handleTransitionEnd());
+
+        // Atualiza a posição ao redimensionar a tela
+        window.addEventListener('resize', () => this.handleResize());
+
+        // Controles de autoplay com pausa no hover e foco
+        this.container.addEventListener('mouseenter', () => this.stopAutoPlay());
+        this.container.addEventListener('mouseleave', () => this.startAutoPlay());
+        this.container.addEventListener('focusin', () => this.stopAutoPlay());
+        this.container.addEventListener('focusout', () => this.startAutoPlay());
+
+        // Navegação por teclado
+        this.container.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                this.prev();
+            } else if (e.key === 'ArrowRight') {
+                this.next();
+            }
+        });
+
+        // Inicializa o carrossel na posição correta
+        this.updatePosition(false);
+        this.updateDots();
+        this.startAutoPlay();
+    }
+
+    createDots() {
+        if (!this.dotsContainer) return;
+        this.dotsContainer.innerHTML = '';
+        for (let i = 0; i < this.originalCount; i++) {
+            const dot = document.createElement('button');
+            dot.classList.add('carousel-dot');
+            dot.setAttribute('type', 'button');
+            dot.setAttribute('role', 'tab');
+            dot.setAttribute('aria-label', `Ir para o slide ${i + 1}`);
+            dot.addEventListener('click', () => this.goTo(i));
+            this.dotsContainer.appendChild(dot);
+        }
+    }
+
+    getSlideWidth() {
+        const slide = this.allSlides[0];
+        return slide ? slide.getBoundingClientRect().width : 0;
+    }
+
+    getGap() {
+        return parseFloat(window.getComputedStyle(this.track).gap) || 0;
+    }
+
+    updatePosition(animate = true) {
+        if (animate) {
+            this.track.style.transition = 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+        } else {
+            this.track.style.transition = 'none';
+        }
+
+        const slideWidth = this.getSlideWidth();
+        const gap = this.getGap();
+        const offset = this.currentIndex * (slideWidth + gap);
+
+        this.track.style.transform = `translateX(-${offset}px)`;
+    }
+
+    updateDots() {
+        if (!this.dotsContainer) return;
+        const dots = Array.from(this.dotsContainer.children);
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        let activeIndex = (this.currentIndex - this.originalCount) % this.originalCount;
+        if (activeIndex < 0) {
+            activeIndex += this.originalCount;
+        }
+
+        if (dots[activeIndex]) {
+            dots[activeIndex].classList.add('active');
+        }
+    }
+
+    next() {
+        if (this.isTransitioning) return;
+        this.isTransitioning = true;
+        this.currentIndex++;
+        this.updatePosition(true);
+        this.updateDots();
+    }
+
+    prev() {
+        if (this.isTransitioning) return;
+        this.isTransitioning = true;
+        this.currentIndex--;
+        this.updatePosition(true);
+        this.updateDots();
+    }
+
+    goTo(index) {
+        if (this.isTransitioning) return;
+        this.isTransitioning = true;
+        this.currentIndex = this.originalCount + index;
+        this.updatePosition(true);
+        this.updateDots();
+    }
+
+    handleTransitionEnd() {
+        this.isTransitioning = false;
+
+        // Loop infinito - reposiciona sem animação se atingiu o limite
+        if (this.currentIndex >= 2 * this.originalCount) {
+            this.currentIndex -= this.originalCount;
+            this.updatePosition(false);
+        } else if (this.currentIndex < this.originalCount) {
+            this.currentIndex += this.originalCount;
+            this.updatePosition(false);
+        }
+    }
+
+    handleResize() {
+        this.track.style.transition = 'none';
+        this.updatePosition(false);
+    }
+
+    startAutoPlay() {
+        this.stopAutoPlay();
+        this.autoPlayTimer = setInterval(() => this.next(), this.autoPlayDelay);
+    }
+
+    stopAutoPlay() {
+        if (this.autoPlayTimer) {
+            clearInterval(this.autoPlayTimer);
+            this.autoPlayTimer = null;
+        }
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function () {
+    // Inicializa o carrossel de projetos
+    new Carousel('.carousel-container');
+
     // Scroll suave para âncoras
     document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
         anchor.addEventListener('click', function (e) {
