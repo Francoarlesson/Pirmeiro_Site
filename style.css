@@ -836,6 +836,10 @@ section p {
         gap: 1rem;
     }
 
+    .logo img {
+        max-height: 70px;
+    }
+
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
@@ -847,8 +851,9 @@ section p {
     }
 
     .hero {
-        padding: 12rem 1.5rem 4rem;
+        padding: 10rem 1.5rem 4rem;
         min-height: 72vh;
+        align-items: flex-start;
     }
 
     .hero h1 {
@@ -863,11 +868,11 @@ section p {
 
 @media (max-width: 620px) {
     header {
-        padding: 1rem 1rem;
+        padding: 0.8rem 1rem;
     }
 
     .logo img {
-        max-height: 84px;
+        max-height: 55px;
     }
 
     nav ul {
@@ -882,7 +887,8 @@ section p {
     }
 
     .hero {
-        padding: 15rem 1.2rem 3.5rem;
+        padding: 13rem 1.2rem 3.5rem;
+        align-items: flex-start;
     }
 
     .hero p,
@@ -917,7 +923,8 @@ section p {
     }
 
     .hero {
-        padding-top: 11rem;
+        padding-top: 9rem;
+        align-items: flex-start;
     }
 
     .hero h1 {
